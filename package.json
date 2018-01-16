@@ -1,0 +1,24 @@
+{
+  "name": "node-website",
+  "version": "1.0.0",
+  "description": "MEAN stack application for personal blog uses",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mean",
+    "blog"
+  ],
+  "author": "Nikol Paraskova",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.7",
+    "mongoose": "4.10.8"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
+}
