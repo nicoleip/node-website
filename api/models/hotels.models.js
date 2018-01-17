@@ -18,8 +18,11 @@ var reviewSchema = new mongoose.Schema({
     createdOn : {
         type : Date,
         default  : Date.now
-    }
+    } 
+     
 });
+
+
 
 var roomSchema = new mongoose.Schema({
     type: String,
@@ -56,4 +59,5 @@ var hotelSchema = new mongoose.Schema({
     }
 });
 
+hotelSchema.set('usePushEach', true);
 mongoose.model('Hotel', hotelSchema);
