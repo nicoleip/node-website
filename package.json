@@ -13,6 +13,8 @@
   "author": "Nikol Paraskova",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.8",
+    "angular-route": "^1.6.8",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "mongodb": "^2.1.7",
