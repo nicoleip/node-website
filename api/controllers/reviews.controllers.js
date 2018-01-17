@@ -75,10 +75,10 @@ module.exports.reviewsAddOne = function(req, res) {
             response.status = 500;
             response.message = err;
         } else if(!doc) {
-            console.log('Hotel id not found in the database', id);
+            console.log('Hotel id not found in the database', hotelId);
             response.status = 404;
             response.message = {
-                "message" : "Hotel id not found: " + id
+                "message" : "Hotel id not found: " + hotelId
             };
             
         }

@@ -15,8 +15,10 @@
   "dependencies": {
     "angular": "^1.6.8",
     "angular-route": "^1.6.8",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "jsonwebtoken": "^8.1.0",
     "mongodb": "^2.1.7",
     "mongoose": "4.10.8"
   },
