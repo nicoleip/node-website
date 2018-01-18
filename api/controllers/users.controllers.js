@@ -30,14 +30,13 @@ module.exports.login = function(req, res) {
 
     var username = req.body.username;
     var password = req.body.password;
-
     User.findOne({
         username : username
     }).exec(function(err, user) {
         if(err) {
             console.log(err);
             res.status(400).json(err);
-        } else {
+        } else {        
             if(bcrypt.compareSync(password, user.password)){
                 
                 console.log('user found', user);
@@ -46,9 +45,8 @@ module.exports.login = function(req, res) {
             } else {
             res.status(401).json('Unauthorized');
             }
-        }
+        }        
     });
-
 };
 
 module.exports.authenticate = function(req, res, next) {
