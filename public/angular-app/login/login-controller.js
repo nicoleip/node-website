@@ -43,4 +43,13 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
     var currentPath = $location.path().split('/')[1];
     return (url === currentPath ? 'active' : '');
   }
+
+  vm.getUsername = function() {
+    if(vm.isLoggedIn()) {
+      var token = jwtHelper.decodeToken($window.sessionStorage.token);
+      var username = token.username;
+
+      return username;
+    }
+  }
 }

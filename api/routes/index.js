@@ -21,7 +21,7 @@ router.route('/hotels/:hotelId')
 // Review routes
 router.route('/hotels/:hotelId/reviews')
     .get(ctrlReviews.reviewsGetAll)
-    .post(ctrlReviews.reviewsAddOne);
+    .post(ctrlUsers.authenticate, ctrlReviews.reviewsAddOne);
 
 
 router.route('/hotels/:hotelId/reviews/:reviewId')
