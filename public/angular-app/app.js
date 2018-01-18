@@ -28,6 +28,22 @@ function config($httpProvider, $routeProvider, $locationProvider) {
                 restricted: false
             }
         })
+        .when('/recipes', {
+            templateUrl: "angular-app/recipe-list/recipes.html",
+            controller: RecipesController,
+            controllerAs: 'vm',
+            access : {
+                restricted : false
+            }
+        })
+        .when('/recipes/:id', {
+            templateUrl: "angular-app/recipe-display/recipe.html",
+            controller: RecipeController,
+            controllerAs: 'vm',
+            access : {
+                restricted : false
+            }
+        })
         .when('/register', {
             templateUrl : "angular-app/register/register.html",
             controller : RegisterController,

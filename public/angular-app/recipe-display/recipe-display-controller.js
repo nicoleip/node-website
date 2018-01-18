@@ -1,16 +1,12 @@
-angular.module('node-website').controller('HotelController', HotelController);
+angular.module('node-website').controller('RecipeController', RecipeController);
 
-function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper) {
+function RecipeController($route, $routeParams, $window, recipesDataFactory, AuthFactory, jwtHelper) {
     var vm = this;
     var id = $routeParams.id;
-    hotelDataFactory.hotelDisplay(id).then(function(response){
-        vm.hotel = response;
-        vm.stars = _getStarRating(response.stars);
+    recipesDataFactory.recipeDisplay(id).then(function(response){
+        console.log(response);
+        vm.recipe = response;        
     });
-
-    function _getStarRating(stars) {
-        return new Array(stars);
-    }
     
     vm.isLoggedIn = function(){
         if (AuthFactory.isLoggedIn) {
@@ -20,7 +16,7 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
           }
     }
 
-    vm.addReview = function() {   
+    vm.addComment = function() {   
         
         var token = jwtHelper.decodeToken($window.sessionStorage.token);
         var username = token.username;
@@ -28,10 +24,10 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
         var postData = {
             name : username,
             rating : vm.rating,
-            review : vm.review
+            comment : vm.comment
         };
-        if(vm.reviewForm.$valid) {
-            hotelDataFactory.postReview(id, postData).then(function(response){                
+        if(vm.commentForm.$valid) {
+            recipeDataFactory.postComment(id, postData).then(function(response){                
                 if(response && response._id) {                    
                     $route.reload();
                 }

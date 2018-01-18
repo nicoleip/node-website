@@ -13,6 +13,7 @@
             <ul class="nav navbar-nav">
               <li ng-class="vm.isActiveTab('')"><a href="#/">Home</a></li>
               <li ng-class="vm.isActiveTab('hotels')"><a href="#/hotels">Hotels</a></li>
+              <li ng-class="vm.isActiveTab('recipes')"><a href="#/recipes">Recipes</a></li>
               <li ng-class="vm.isActiveTab('register')" ng-if="!vm.isLoggedIn()"><a href="#/register">Register</a></li>
               <li ng-class="vm.isActiveTab('profile')" ng-if="vm.isLoggedIn()"><a href="#/profile">Profile</a></li>
             </ul>

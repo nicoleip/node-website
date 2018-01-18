@@ -1,0 +1,28 @@
+<h1>Information on {{ vm.recipe.name }}</h1>
+<h1>Short description:</h1>
+<p>{{ vm.recipe.name }}</p>
+<h1>Services Available</h1>
+<p>
+    <ul>
+        <li ng-repeat="step in vm.recipe.steps">{{ step }}</li>
+    </ul>
+</p>
+<h1>Comments:</h1>
+<p>
+    <ul>
+        <li ng-repeat="comment in vm.recipe.comments">{{ comment.name }} says: {{ comment.comment }}</li>
+    </ul>
+</p>
+<div ng-if="vm.isLoggedIn()">
+<form name="vm.reviewForm" ng-submit="vm.addReview()">  
+    Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
+    <div ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">
+        <p>Rating must be between 1 and 5</p>
+    </div>
+    Your review: <textarea name="review" required ng-model="vm.review"></textarea>
+        <div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
+            <p>Please add a review</p>
+        </div>
+        <button type="submit" class="btn">Add review</button>
+</form>
+</div>
