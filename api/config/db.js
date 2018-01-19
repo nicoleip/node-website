@@ -40,3 +40,4 @@ process.once('SIGUSR2', function() {
 require('../models/hotels.models.js');
 require('../models/users.model.js');
 require('../models/recipes.models.js');
+require('../models/quotes.models.js');

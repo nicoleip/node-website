@@ -8,6 +8,8 @@ function config($httpProvider, $routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: "angular-app/main/main.html",
+            controller: MainController,
+            controllerAs: "vm",
             access : {
                 restricted: false
             }
@@ -59,11 +61,18 @@ function config($httpProvider, $routeProvider, $locationProvider) {
                 restricted: true
             }
         })
+        .when('/quotes', {
+            templateUrl: "angular-app/quotes/quotes.html",
+            controller: QuotesController,
+            controllerAs: "vm",
+            access: {
+                restricted : false
+            }
+        })
         .otherwise({
             redirectTo : '/'
         });
 }
-
 
 function run($rootScope, $location, $window, AuthFactory) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {

@@ -23,7 +23,6 @@ var reviewSchema = new mongoose.Schema({
 });
 
 
-
 var roomSchema = new mongoose.Schema({
     type: String,
     number: Number,

@@ -7,6 +7,7 @@ var ctrlReviews = require('../controllers/reviews.controllers.js');
 var ctrlUsers = require('../controllers/users.controllers.js');
 var ctrlRecipes = require('../controllers/recipes.controllers.js');
 var ctrlComments = require('../controllers/comments.controllers.js');
+var ctrlQuotes = require('../controllers/quotes.controllers.js');
 
 // Hotel routes
 router.route('/hotels')
@@ -55,6 +56,10 @@ router.route('/recipes/:recipeId/comments/:commentId')
 .put(ctrlComments.commentsUpdateOne)
 .delete(ctrlComments.commentsDeleteOne);
 
+
+// Quotes routes
+router.route('/quotes')
+    .get(ctrlQuotes.quotesGetAll);
 
 // User routes
 

@@ -8,3 +8,5 @@ db.hotels.update(
         }
     }
 )
+
+    mongoimport --db node-website --collection recipes --jsonArray --file 

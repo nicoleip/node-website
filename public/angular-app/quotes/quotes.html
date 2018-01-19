@@ -1,14 +1,8 @@
 <h1>{{ vm.title }}</h1>
-
-<h1>Inspirational Quotes:</h1>
 <p>
 <div>
     <ul>
         <li ng-repeat="quote in vm.quotes">{{ quote.quoteText }} <br> {{ quote.quoteAuthor }}</li><br>
     </ul>
 </div>
-<div>
-    <a href="#/quotes"><button>See more</button></a>
-</div>
-
 </p>
