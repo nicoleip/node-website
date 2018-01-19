@@ -25,3 +25,8 @@ body > .container {
 .has-error {
   border-color: red;
 }
+
+.big {
+  max-height: 500px;
+  max-width: 800px;
+}

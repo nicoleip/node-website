@@ -1,7 +1,9 @@
 <h1>Information on {{ vm.recipe.name }}</h1>
 <h1>Short description:</h1>
 <p>{{ vm.recipe.name }}</p>
-<h1>Services Available</h1>
+<object data="/images/delicious.jpg" type="image/jpg">
+    <img class="big" src="{{ vm.recipe.imageURL }}"/>
+  </object>
 <p>
     <ul>
         <li ng-repeat="step in vm.recipe.steps">{{ step }}</li>
