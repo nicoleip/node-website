@@ -1,11 +1,11 @@
 angular.module('node-website').controller('RecipeController', RecipeController);
 
-function RecipeController($route, $routeParams, $window, recipesDataFactory, AuthFactory, jwtHelper) {
+function RecipeController($route, $routeParams, $window, recipesDataFactory, AuthFactory, jwtHelper, $http) {
     var vm = this;
     var id = $routeParams.id;
     recipesDataFactory.recipeDisplay(id).then(function(response){
         console.log(response);
-        vm.recipe = response;        
+        vm.recipe = response;     
     });
     
     vm.isLoggedIn = function(){
@@ -27,8 +27,8 @@ function RecipeController($route, $routeParams, $window, recipesDataFactory, Aut
             comment : vm.comment
         };
         if(vm.commentForm.$valid) {
-            recipeDataFactory.postComment(id, postData).then(function(response){                
-                if(response && response._id) {                    
+            recipesDataFactory.postComment(id, postData).then(function(response){                
+                if(response && response._id) {               
                     $route.reload();
                 }
             }).catch(function(error){

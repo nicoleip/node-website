@@ -1,9 +1,10 @@
-angular.module('node-website', ['ngRoute', 'angular-jwt']).config(config).run(run);
+angular.module('node-website', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination'], ).config(config).run(run);
     
 
-function config($httpProvider, $routeProvider, $locationProvider) {
+function config($httpProvider, $routeProvider, $locationProvider, paginationTemplateProvider) {
     $locationProvider.hashPrefix('');
     $httpProvider.interceptors.push('AuthInterceptor');
+    paginationTemplateProvider.setPath('public/templates/dirPagination.tpl.html');
         
     $routeProvider
         .when('/', {
@@ -56,6 +57,7 @@ function config($httpProvider, $routeProvider, $locationProvider) {
         })
         .when('/profile', {
             templateUrl : "angular-app/profile/profile.html",
+            controller : ProfileController,
             controllerAs: "vm",
             access: {
                 restricted: true

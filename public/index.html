@@ -2,29 +2,61 @@
 <html ng-app="node-website">
 <head>
   <title>MEAN hotel</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet" /> -->
   <link href="css/custom.css" rel="stylesheet" />
+  <link href="css/clean-blog.css" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <!--  -->
 <nw-navigation></nw-navigation>
-<div class="container">
+
   <div ng-view></div>
-</div>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted text-center">
-        <a href="http://fullstacktraining.com" target="_blank"><img src="/images/fullstacktraining_logo.png" height="26" alt="Full Stack Training"/></a>
-      </p>
 
-      <p class="text-muted text-center">
-        <small>&copy; 2015 Full Stack Training Ltd</small>
-      </p>
-    </div>
+  <footer>
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+              <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <p class="copyright text-muted">Nikol Paraskova - Techical University of Sofia - Web Technologies</p>
+            </div>
+          </div>
+        </div>   
   </footer>
 
+  <!-- Scripts -->
   <script src="jquery/jquery-3.2.1.min.js"></script>
   <script src="node_modules/angular/angular.js"></script>
   <script src="node_modules/angular-route/angular-route.js"></script>
@@ -38,11 +70,14 @@
   <script src="angular-app/recipe-data-factory/recipe-data-factory.js"></script>
   <script src="angular-app/main/main-controller.js"></script>
   <script src="angular-app/quotes/quotes-controller.js"></script>
+  <script src="angular-app/profile/profile-controller.js"></script>
   <script src="angular-app/hotel-rating/hotel-rating-directive.js"></script>
   <script src="angular-app/register/register-controller.js"></script>
-  <script src="angular-app/navigation-directive/navigation-directive.js"></script>
+  <script src="angular-app/navigation-directive/navigation-directive.js"></script>  
   <script src="angular-app/login/login-controller.js"></script>
   <script src="angular-app/auth/auth-factory.js"></script>
   <script src="angular-app/auth/auth-interceptor.js"></script>
+  <script src="scripts/dirPagination.js"></script>
+  <script src="scripts/clean-blog.js"></script>
 </body>
 </html>

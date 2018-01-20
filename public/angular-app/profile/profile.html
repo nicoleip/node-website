@@ -1,1 +1,7 @@
-<h1>This is a profle</h1>
+<div>
+        <h1>This is the personal profle of {{ vm.getUsername() }}</h1>
+</div>
+<div>
+    <p>To be soon implemented :)</p>
+</div>
+<button ng-if="vm.isLoggedIn()" class="btn-sm btn-info" ng-click="vm.logout()">Logout</button>

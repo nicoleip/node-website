@@ -1,8 +1,14 @@
 <h1>{{ vm.title }}</h1>
+<label for="search">Search:</label>
+<input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+</div>
 <p>
 <div>
     <ul>
-        <li ng-repeat="quote in vm.quotes">{{ quote.quoteText }} <br> {{ quote.quoteAuthor }}</li><br>
+        <li dir-paginate="quote in vm.quotes | filter:q | itemsPerPage: 10">{{ quote.quoteText }}<br>{{ quote.quoteAuthor }}</li>
     </ul>
+</div>
+<div class="text-center">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
 </div>
 </p>

@@ -1,28 +1,53 @@
-<h1>Information on {{ vm.hotel.name }} <hotel-rating stars="vm.stars"></hotel-rating></h1> 
-<h1>Short description:</h1>
-<p>{{ vm.hotel.description }}</p>
-<h1>Services Available</h1>
-<p>
-    <ul>
-        <li ng-repeat="service in vm.hotel.services">{{ service }}</li>
-    </ul>
-</p>
-<h1>Reviews:</h1>
-<p>
-    <ul>
-        <li ng-repeat="review in vm.hotel.reviews">{{ review.name }} says: {{ review.review }}</li>
-    </ul>
-</p>
-<div ng-if="vm.isLoggedIn()">
-<form name="vm.reviewForm" ng-submit="vm.addReview()">  
-    Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
-    <div ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">
-        <p>Rating must be between 1 and 5</p>
+<div class="whole-bg-hotel-container">
+    <div class="move-down white-font position-left">
+        <h1 class="stroke-title">Information on {{ vm.hotel.name }}
+            <hotel-rating stars="vm.stars"></hotel-rating>
+        </h1>
     </div>
-    Your review: <textarea name="review" required ng-model="vm.review"></textarea>
-        <div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
-            <p>Please add a review</p>
+    <div class="container white-font position-left">
+        <h1 class="stroke-title">Short description:</h1>
+        <p>{{ vm.hotel.description }}</p>
+        <h1 class="stroke-title">Services Available:</h1>
+        <p>
+            <ul>
+                <li ng-repeat="service in vm.hotel.services">{{ service }}</li>
+            </ul>
+        </p>
+        <h1 class="stroke-title">Reviews:</h1>
+        <p>
+            <ul class="list-style">
+                <li class="pencil" ng-repeat="review in vm.hotel.reviews">
+                    <strong>{{ review.name }}</strong> says: {{ review.review }}
+                </li>
+            </ul>
+        </p>
+        <hr>
+        <div ng-if="!vm.isLoggedIn()">
+            <p>Please login to leave a review.</p>
         </div>
-        <button type="submit" class="btn">Add review</button>
-</form>
+    </div>
+    <div ng-if="vm.isLoggedIn()">
+        <div>
+            <p class="white-font position-left">Leave your review here:</p>
+        </div>
+        <div class="form-div position-left">
+            <form name="vm.reviewForm" class="form" ng-submit="vm.addReview()">
+                <p class="rate white-font">Your rating:</p>
+                <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
+                <div class="rate" ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">
+                    <p class="rate white-font">Rating must be between 1 and 5</p>
+                </div>
+                <br>
+                <p class="rate white-font">Your review:</p>
+                <textarea name="review" required ng-model="vm.review" rows="4" cols="45"></textarea>
+                <div class="rate" ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
+                    <p class="rate white-font">Please add a review</p>
+                </div>
+                <br>
+                <div class="btn-container">
+                    <button type="submit" class="btn margin">Add review</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

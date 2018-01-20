@@ -1,14 +1,45 @@
-<h1>{{ vm.title }}</h1>
+<header class="masthead" style="background-image: url('images/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Personal Blog</h1>
+                    <span class="subheading">Nikol Paraskova</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-<h1>Inspirational Quotes:</h1>
-<p>
-<div>
-    <ul>
-        <li ng-repeat="quote in vm.quotes">{{ quote.quoteText }} <br> {{ quote.quoteAuthor }}</li><br>
-    </ul>
-</div>
-<div>
-    <a href="#/quotes"><button>See more</button></a>
-</div>
+<div class="container">
+    <div class="welcome-title">
+        <h1>{{ vm.title }}</h1>
+    </div>
+    <div class="welcome-subtitle">
+        <h4>Here you can read some of my favorite quotes:</h4>
+    </div>
 
-</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-preview">
+                    <ul>
+                        <li ng-repeat="quote in vm.quotes">
+                            <h3 class="post-title">{{ quote.quoteText }}</h3>
+                            <p class="post-meta"> {{ quote.quoteAuthor }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <a href="#/quotes">
+            <button class="btn">See more</button>
+        </a>
+    </div>
+</div>
+<hr>
