@@ -1,10 +1,20 @@
-<div class="whole-bg-hotel-container">
-    <div class="move-down white-font position-left">
-        <h1 class="stroke-title">Information on {{ vm.hotel.name }}
-            <hotel-rating stars="vm.stars"></hotel-rating>
-        </h1>
+<header class="masthead" style="background-image: url('images/hotel-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Information on {{ vm.hotel.name }}</h1>
+                    <span class="subheading">
+                        <hotel-rating stars="vm.stars"></hotel-rating>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container white-font position-left">
+</header>
+<div>
+    <div class="container position-left">
         <h1 class="stroke-title">Short description:</h1>
         <p>{{ vm.hotel.description }}</p>
         <h1 class="stroke-title">Services Available:</h1>
@@ -28,20 +38,22 @@
     </div>
     <div ng-if="vm.isLoggedIn()">
         <div>
-            <p class="white-font position-left">Leave your review here:</p>
+            <p class="position-left">
+                <i>Leave your review here:</i>
+            </p>
         </div>
         <div class="form-div position-left">
             <form name="vm.reviewForm" class="form" ng-submit="vm.addReview()">
-                <p class="rate white-font">Your rating:</p>
+                <p class="rate">Your rating:</p>
                 <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
                 <div class="rate" ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">
-                    <p class="rate white-font">Rating must be between 1 and 5</p>
+                    <p class="rate">Rating must be between 1 and 5</p>
                 </div>
                 <br>
-                <p class="rate white-font">Your review:</p>
+                <p class="rate">Your review:</p>
                 <textarea name="review" required ng-model="vm.review" rows="4" cols="45"></textarea>
                 <div class="rate" ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
-                    <p class="rate white-font">Please add a review</p>
+                    <p class="rate">Please add a review</p>
                 </div>
                 <br>
                 <div class="btn-container">

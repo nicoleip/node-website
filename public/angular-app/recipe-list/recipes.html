@@ -1,5 +1,23 @@
-<h1>{{ vm.title }}</h1>
-
-<ul>
-    <li ng-repeat="recipe in vm.recipes"><a ng-href="#/recipes/{{ recipe._id }}">{{ recipe.name }}</a></li>
+<header class="masthead" style="background-image: url('images/recipes-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Recipes</h1>
+                    <span class="subheading">Enjoy the taste of the delicious home-made dishes.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+        <div class="welcome-title">
+        <h1>{{ vm.title }}</h1>
+    </div>
+    <div class="welcome-subtitle">
+        <h4>You can easily prepare these dishes at home. Pick one and get inspired!</h4>
+    </div>
+<ul class="list-style">
+    <li ng-repeat="recipe in vm.recipes" class="dish-list"><a ng-href="#/recipes/{{ recipe._id }}">{{ recipe.name }}</a></li>
 </ul>

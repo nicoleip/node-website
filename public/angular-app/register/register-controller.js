@@ -21,6 +21,7 @@ function RegisterController($http) {
           vm.error = '';
         }).catch(function(error) {
           console.log(error);
+          vm.error = 'Username already taken';
         });
       }
     }

@@ -1,27 +1,53 @@
-<h1>Information on {{ vm.recipe.name }}</h1>
-<h1>Short description:</h1>
-<p>{{ vm.recipe.name }}</p>
-<img  src="{{ vm.recipe.imageURL }}" onerror="this.src='/images/delicious.jpg'" class="recipe"/>
-<p>
-    <ul>
+<div class="move-down position-left">
+    <h1>{{ vm.recipe.name }}</h1>
+</div>
+<div class="col-lg-12 col-md-10 mx-auto col">
+    <div class="polaroid">
+        <img src="{{ vm.recipe.imageURL }}" onerror="this.src='/images/delicious.jpg'" class="recipe" style="width:100%;" />
+        <div class="container-text">
+            <p>{{ vm.recipe.name }}</p>
+        </div>
+    </div>
+</div>
+<div class="container position-left">
+    <h1>Steps of prepraration:</h1>
+    <ol>
         <li ng-repeat="step in vm.recipe.steps">{{ step }}</li>
-   </ul>
-</p>
-<h1>Comments:</h1>
-<p>
-   <ul>
-       <li ng-repeat="comment in vm.recipe.comments">{{ comment.name }} says: {{ comment.comment }}</li>
-   </ul>
-</p>
+    </ol>
+    <h1>Comments:</h1>
+    <p>
+        <ul>
+            <li ng-repeat="comment in vm.recipe.comments">{{ comment.name }} says: {{ comment.comment }}</li>
+        </ul>
+    </p>
+    <hr>
+    <div ng-if="!vm.isLoggedIn()">
+        <p>Please login to leave a comment.</p>
+    </div>
+</div>
 <div ng-if="vm.isLoggedIn()">
-<form name="vm.commentForm" ng-submit="vm.addComment()">  
-   Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
-   <div ng-show="vm.commentForm.rating.$dirty && vm.commentForm.rating.$invalid && vm.isSubmitted">
-       <p>Rating must be between 1 and 5</p>
-   </div>
-   Your review: <textarea name="comment" required ng-model="vm.comment"></textarea>
-       <div ng-show="vm.commentForm.review.$dirty && vm.isSubmitted">
-           <p>Please add a comment</p>
-       </div>
-       <button type="submit" class="btn">Add comment</button>
-</form>
+    <div>
+        <p class="position-left">
+            <i>Leave your comment here:</i>
+        </p>
+    </div>
+    <div class="form-div position-left">
+        <form name="vm.commentForm" class="form" ng-submit="vm.addComment()">
+            <p class="rate">Your rating:</p>
+            <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
+            <div class="rate" ng-show="vm.commentForm.rating.$dirty && vm.commentForm.rating.$invalid && vm.isSubmitted">
+                <p class="rate">Rating must be between 1 and 5</p>
+            </div>
+            <br>
+            <p class="rate">Your comment:</p>
+            <textarea name="comment" required ng-model="vm.comment" rows="4" cols="45"></textarea>
+            <div class="rate" ng-show="vm.commentForm.comment.$dirty && vm.isSubmitted">
+                <p class="rate">Please add a comment</p>
+            </div>
+            <br>
+            <div class="btn-container">
+                <button type="submit" class="btn margin">Add comment</button>
+            </div>
+        </form>
+    </div>
+</div>

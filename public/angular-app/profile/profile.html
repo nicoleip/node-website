@@ -1,7 +1,17 @@
-<div>
-        <h1>This is the personal profle of {{ vm.getUsername() }}</h1>
-</div>
-<div>
+<header class="masthead" style="background-image: url('images/profile-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>My Profile</h1>
+                    <span class="subheading">This is the personal profile of {{ vm.getUsername() }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container position-left">
     <p>To be soon implemented :)</p>
+<button ng-if="vm.isLoggedIn()" class="btn btn-info" ng-click="vm.logout()">Logout</button>
 </div>
-<button ng-if="vm.isLoggedIn()" class="btn-sm btn-info" ng-click="vm.logout()">Logout</button>

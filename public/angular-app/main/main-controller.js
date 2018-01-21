@@ -2,7 +2,7 @@ angular.module('node-website').controller('MainController', MainController);
 
 function MainController($http, $location, $window, AuthFactory, jwtHelper) {
   var vm = this;
-  vm.title = 'Welcome, dear readers!';
+  vm.title = 'Welcome, dear reader!';
 
   $http.get('/api/quotes?count=5').then(function(response){
     quotes = response.data; 
