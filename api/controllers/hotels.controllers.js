@@ -240,3 +240,46 @@ module.exports.hotelsDeleteOne = function(req, res) {
             }
         });
 };
+
+module.exports.hotelEditDescription = function(req, res){
+    var hotelId = req.params.hotelId;
+
+    Hotel
+    .findById(hotelId)
+    .select("description")
+    .exec(function(err, hotel){
+        var response = {
+            status : 200,
+            message: hotel
+        }
+        if(err) {
+            console.log("Error finding hotel");
+            response.status = 500;
+            response.message = err;
+        } else if (!hotel) {
+            response.status = 404;
+            response.message = {
+                    "message" : "Hotel Id not found"
+                };
+        }         
+        if(response.status!== 200){
+        res
+                .status(response.status)
+                .json(response.message);
+        } else {
+            
+            hotel.description = req.body.description;          
+            hotel.save(function(err, hotelUpdated){
+                if(err){
+                    res
+                    .status(500)
+                    .json(err);
+                } else {
+                    res
+                    .status(204)
+                    .json();
+                }
+            })
+        }          
+        });
+}

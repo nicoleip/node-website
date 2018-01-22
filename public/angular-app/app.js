@@ -1,4 +1,4 @@
-angular.module('node-website', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination'], ).config(config).run(run);
+angular.module('node-website', ['ngRoute', 'angular-jwt', 'angularUtils.directives.dirPagination', 'textAngular'], ).config(config).run(run);
     
 
 function config($httpProvider, $routeProvider, $locationProvider, paginationTemplateProvider) {
@@ -26,6 +26,14 @@ function config($httpProvider, $routeProvider, $locationProvider, paginationTemp
         .when('/hotel/:id', {
             templateUrl: "angular-app/hotel-display/hotel.html",
             controller: HotelController,
+            controllerAs: "vm",
+            access : {
+                restricted: false
+            }
+        })
+        .when('/hotel/:id/edit', {
+            templateUrl: "angular-app/hotel-edit/hotel-edit.html",
+            controller: HotelEditController,
             controllerAs: "vm",
             access : {
                 restricted: false

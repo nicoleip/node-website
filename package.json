@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.1.0",
     "mongodb": "^2.1.7",
     "mongoose": "4.10.8",
+    "textangular": "^1.5.16",
     "url-exists": "^1.0.3"
   },
   "devDependencies": {
