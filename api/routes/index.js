@@ -32,7 +32,7 @@ router.route('/hotels/:hotelId/reviews/:reviewId')
     .put(ctrlReviews.reviewsUpdateOne)
     .delete(ctrlReviews.reviewsDeleteOne);
 
-router.route('/hotels/:hotelId/edit"')
+router.route('/hotels/:hotelId/edit')
     .get(ctrlHotels.hotelsGetOne)
     .put(ctrlHotels.hotelEditDescription);
 

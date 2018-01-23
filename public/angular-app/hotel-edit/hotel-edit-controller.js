@@ -1,6 +1,6 @@
 angular.module('node-website').controller('HotelEditController', HotelEditController);
 
-function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper) {
+function HotelEditController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper, $scope, $filter) {
     var vm = this;
     var id = $routeParams.id;
     hotelDataFactory.hotelDisplay(id).then(function(response){
@@ -20,18 +20,23 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
           }
     }
 
-    vm.addReview = function() {   
-        
-        var token = jwtHelper.decodeToken($window.sessionStorage.token);
-        var username = token.username;
+    vm.stripFormat = function ($html) {
+        console.log('goes in the filter');
+        return $filter('htmlToPlaintext')($html);
+    };
 
-        var postData = {
-            name : username,
-            rating : vm.rating,
-            review : vm.review
+    vm.editHotel = function() {   
+        
+        // var token = jwtHelper.decodeToken($window.sessionStorage.token);
+        // var username = token.username;
+
+        var putData = {
+            "description" : vm.hotel.description
         };
-        if(vm.reviewForm.$valid) {
-            hotelDataFactory.postReview(id, postData).then(function(response){                
+        console.log(putData);
+        if(putData.description) {
+            console.log('goes in the method');
+            hotelDataFactory.hotelEdit(id, putData).then(function(response){                
                 if(response && response._id) {                    
                     $route.reload();
                 }
@@ -42,4 +47,5 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
             vm.isSubmitted = true;
         }
     };
+   
 }

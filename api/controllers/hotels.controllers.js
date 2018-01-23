@@ -246,7 +246,7 @@ module.exports.hotelEditDescription = function(req, res){
 
     Hotel
     .findById(hotelId)
-    .select("description")
+    .select("-reviews -rooms")
     .exec(function(err, hotel){
         var response = {
             status : 200,
@@ -267,7 +267,8 @@ module.exports.hotelEditDescription = function(req, res){
                 .status(response.status)
                 .json(response.message);
         } else {
-            
+            console.log('goes in the right place');
+            console.log(req.body.description);
             hotel.description = req.body.description;          
             hotel.save(function(err, hotelUpdated){
                 if(err){

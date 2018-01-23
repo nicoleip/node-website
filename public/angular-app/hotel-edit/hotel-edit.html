@@ -1,0 +1,36 @@
+<header class="masthead" style="background-image: url('images/hotel-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Edit {{ vm.hotel.name }}</h1>
+                    <span class="subheading">
+                        <hotel-rating stars="vm.stars"></hotel-rating>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div>
+    <div class="container position-left">
+        <h1 class="stroke-title">Edit hotel description:</h1>
+        
+            <div class="container lighter">
+                <div text-angular ng-model="vm.hotel.description" name="editor" ta-text-editor-class="clearfix border-around container" ta-html-editor-class="border-around"></div>
+            </div>
+            <br>
+            <div class="container text-center lighter border-around">
+                <div class="lighter roboto">
+                    <p ng-bind="htmlContent" class="text-left text-med text-gray"></p>
+                </div>
+            </div>
+            <br>
+
+        
+        <div class="btn-container">
+            <button ng-click="vm.editHotel()" class="btn margin">Save</button>
+        </div>   
+    </div>
+</div>

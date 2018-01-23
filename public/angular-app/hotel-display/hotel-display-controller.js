@@ -42,4 +42,6 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
             vm.isSubmitted = true;
         }
     };
+
+    vm.isAdmin = true;
 }

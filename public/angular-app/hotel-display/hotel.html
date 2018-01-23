@@ -15,8 +15,11 @@
 </header>
 <div>
     <div class="container position-left">
-        <h1 class="stroke-title">Short description:</h1>
-        <p>{{ vm.hotel.description }}</p>
+            <div ng-if="vm.isAdmin">
+                    <a href="./edit" class="btn btn-info">Edit</a>
+            </div>
+        <h1 class="stroke-title">Short description:</h1>        
+        <p ng-bind-html="vm.hotel.description"></p>
         <h1 class="stroke-title">Services Available:</h1>
         <p>
             <ul>
