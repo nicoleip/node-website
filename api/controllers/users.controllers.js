@@ -1,4 +1,4 @@
-    var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken')
@@ -28,11 +28,10 @@ module.exports.register = function (req, res) {
 
 module.exports.login = function (req, res) {
     console.log('logging user');
-
     var username = req.body.username;
     var password = req.body.password;
     User.findOne({
-        username: username
+        username: username  
     }).exec(function (err, user) {
         if (err) {
             console.log(err);
@@ -71,8 +70,10 @@ module.exports.authenticate = function (req, res, next) {
 
 };
 
-module.exports.sendMail = function (req, res, next) {
 
+module.exports.sendMail = function (req, res, next) {
+    
+    'use strict';
     var email = req.body.email;
     var message = req.body.message;
     var firstname = req.body.firstname;
@@ -84,8 +85,8 @@ module.exports.sendMail = function (req, res, next) {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'test@gmail.com',
-                pass: 'parola'
+                user: 'node.website.blog@gmail.com',
+                pass: 'Par0lan0de'
             }
         });
 
@@ -93,7 +94,7 @@ module.exports.sendMail = function (req, res, next) {
         let mailOptions = {
             from: email, // sender address
             to: 'nikol.paraskova.sh@gmail.com', // list of receivers
-            subject: 'Hello ✔ ' + 'I am' + firstname + ' ' + lastname , // Subject line
+            subject: 'Hello ✔ ' + 'I am ' + firstname + ' ' + lastname , // Subject line
             text: message, // plain text body            
         };
 

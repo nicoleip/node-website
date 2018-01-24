@@ -15,9 +15,9 @@
 </header>
 <div>
     <div class="container position-left">
-        <h1 class="stroke-title">Edit hotel description:</h1>
-        
-            <div class="container lighter">
+        <h1 class="stroke-title">Edit hotel description:</h1>          
+<hr>
+            <div class="container lighter position left">
                 <div text-angular ng-model="vm.hotel.description" name="editor" ta-text-editor-class="clearfix border-around container" ta-html-editor-class="border-around"></div>
             </div>
             <br>
@@ -26,11 +26,9 @@
                     <p ng-bind="htmlContent" class="text-left text-med text-gray"></p>
                 </div>
             </div>
-            <br>
-
-        
-        <div class="btn-container">
-            <button ng-click="vm.editHotel()" class="btn margin">Save</button>
-        </div>   
+            <br>             
     </div>
+    <div class="btn-container">
+        <button ng-click="vm.editHotel()" class="btn save-btn">Save</button>
+    </div> 
 </div>

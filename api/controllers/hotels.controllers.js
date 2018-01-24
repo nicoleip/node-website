@@ -267,7 +267,7 @@ module.exports.hotelEditDescription = function(req, res){
                 .status(response.status)
                 .json(response.message);
         } else {            
-            hotel.description = req.body.description;          
+            hotel.description = req.body.description;
             hotel.save(function(err, hotelUpdated){
                 if(err){
                     res
