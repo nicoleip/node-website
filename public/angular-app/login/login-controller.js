@@ -52,4 +52,16 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
       return username;
     }
   }
+
+  vm.isAdmin = function() {
+    if(vm.isLoggedIn()) {
+      var username = token.username;
+      if (username === 'admin') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
 }

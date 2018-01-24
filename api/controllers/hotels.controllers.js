@@ -266,9 +266,7 @@ module.exports.hotelEditDescription = function(req, res){
         res
                 .status(response.status)
                 .json(response.message);
-        } else {
-            console.log('goes in the right place');
-            console.log(req.body.description);
+        } else {            
             hotel.description = req.body.description;          
             hotel.save(function(err, hotelUpdated){
                 if(err){
@@ -277,8 +275,8 @@ module.exports.hotelEditDescription = function(req, res){
                     .json(err);
                 } else {
                     res
-                    .status(204)
-                    .json();
+                    .status(200)
+                    .json(hotelUpdated);                  
                 }
             })
         }          

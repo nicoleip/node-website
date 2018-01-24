@@ -36,7 +36,7 @@ function config($httpProvider, $routeProvider, $locationProvider, paginationTemp
             controller: HotelEditController,
             controllerAs: "vm",
             access : {
-                restricted: false
+                restricted: true
             }
         })
         .when('/recipes', {
@@ -74,6 +74,14 @@ function config($httpProvider, $routeProvider, $locationProvider, paginationTemp
         .when('/quotes', {
             templateUrl: "angular-app/quotes/quotes.html",
             controller: QuotesController,
+            controllerAs: "vm",
+            access: {
+                restricted : false
+            }
+        })
+        .when('/contact', {
+            templateUrl: "angular-app/contact/contact.html",
+            controller: ContactController,
             controllerAs: "vm",
             access: {
                 restricted : false

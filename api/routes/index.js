@@ -33,7 +33,7 @@ router.route('/hotels/:hotelId/reviews/:reviewId')
     .delete(ctrlReviews.reviewsDeleteOne);
 
 router.route('/hotels/:hotelId/edit')
-    .get(ctrlHotels.hotelsGetOne)
+    .get(ctrlUsers.authenticate, ctrlHotels.hotelsGetOne)
     .put(ctrlHotels.hotelEditDescription);
 
 // Recipes routes
@@ -72,5 +72,8 @@ router.route('/users/register')
 
 router.route('/users/login')
     .post(ctrlUsers.login);
+
+router.route('/users/message')
+    .post(ctrlUsers.sendMail);
 
 module.exports = router;

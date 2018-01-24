@@ -20,9 +20,21 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
           }
     }
 
-    vm.addReview = function() {   
-        
-        var token = jwtHelper.decodeToken($window.sessionStorage.token);
+    vm.isAdmin = function() {
+        if(vm.isLoggedIn()) {
+          var token = jwtHelper.decodeToken($window.sessionStorage.token);
+          var username = token.username;
+          if (username === 'admin') {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+    
+    vm.addReview = function() {       
+       
         var username = token.username;
 
         var postData = {
@@ -43,5 +55,4 @@ function HotelController($route, $routeParams, $window, hotelDataFactory, AuthFa
         }
     };
 
-    vm.isAdmin = true;
 }

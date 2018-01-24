@@ -1,6 +1,6 @@
 angular.module('node-website').controller('HotelEditController', HotelEditController);
 
-function HotelEditController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper, $scope, $filter) {
+function HotelEditController($route, $routeParams, $window, hotelDataFactory, AuthFactory, jwtHelper, $scope, $filter, $location) {
     var vm = this;
     var id = $routeParams.id;
     hotelDataFactory.hotelDisplay(id).then(function(response){
@@ -20,6 +20,15 @@ function HotelEditController($route, $routeParams, $window, hotelDataFactory, Au
           }
     }
 
+    vm.getUsername = function() {
+        if(vm.isLoggedIn()) {
+          var token = jwtHelper.decodeToken($window.sessionStorage.token);
+          var username = token.username;
+    
+          return username;
+        }
+    };
+
     vm.stripFormat = function ($html) {
         console.log('goes in the filter');
         return $filter('htmlToPlaintext')($html);
@@ -35,10 +44,10 @@ function HotelEditController($route, $routeParams, $window, hotelDataFactory, Au
         };
         console.log(putData);
         if(putData.description) {
-            console.log('goes in the method');
-            hotelDataFactory.hotelEdit(id, putData).then(function(response){                
+            hotelDataFactory.hotelEdit(id, putData).then(function(response){
+                console.log(response);                
                 if(response && response._id) {                    
-                    $route.reload();
+                    $window.location.href = "#/hotel/" + vm.hotel._id;  
                 }
             }).catch(function(error){
                 console.log(error);
