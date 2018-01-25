@@ -27,7 +27,9 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
           vm.loggedInUser = decodedToken.username;
         }
       }).catch(function(error) {
+        vm.error = 'Wrong username or password';
         console.log(error);
+        return;
       })
 
     }
